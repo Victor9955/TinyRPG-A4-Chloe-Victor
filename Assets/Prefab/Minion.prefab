@@ -98,6 +98,11 @@ PrefabInstance:
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 7887547853838734458}
+    - target: {fileID: 1773919467903242491, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: _initialHealth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2221839628788110084, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_LocalPosition.x
