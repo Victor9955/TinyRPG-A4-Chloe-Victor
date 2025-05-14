@@ -3,21 +3,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour,IMovable
 {
     Controls controls;
 
-    [SerializeField] private InterfaceReference<IMovable> _movable;
+    public Vector2 Direction { get => controls.Game.Move.ReadValue<Vector2>().normalized; }
 
     private void Start()
     {
         controls = new Controls();
         controls.Enable();
-        controls.Game.Move.performed += DoMove;
-    }
-
-    private void DoMove(InputAction.CallbackContext context)
-    {
-        //_movable?.Value.Move(context.ReadValue<Vector2>().normalized);
     }
 }
