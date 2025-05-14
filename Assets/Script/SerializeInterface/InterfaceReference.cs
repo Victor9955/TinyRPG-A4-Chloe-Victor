@@ -31,6 +31,7 @@ public class InterfaceReference<TInterface, TObject> where TObject : Object wher
     public InterfaceReference(TInterface @interface) => underlyingValue = @interface as TObject;
     
     public static implicit operator TInterface(InterfaceReference<TInterface, TObject> obj) => obj.Value;
+    public bool IsNull() => underlyingValue == null;
 }
 
 [Serializable]

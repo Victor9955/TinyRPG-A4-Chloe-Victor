@@ -24,6 +24,6 @@ MonoBehaviour:
     - rid: 1011410288897687803
       type: {class: Coin, ns: , asm: Assembly-CSharp}
       data:
-        amount: 0
-        color: {r: 0, g: 0, b: 0, a: 0}
+        amount: 10
+        color: {r: 1, g: 0.83099353, b: 0, a: 0}
         multiplier: 0

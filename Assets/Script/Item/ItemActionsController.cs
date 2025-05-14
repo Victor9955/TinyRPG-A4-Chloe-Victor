@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class ItemActionsController : MonoBehaviour, IInteractable
 {
-    [SerializeField] Transform mainTransform;
+    [SerializeField] Transform target;
 
     public void Interact(GameObject user)
     {
         if(user.TryGetComponent(out ItemRef itemRef))
         {
-            mainTransform.GetComponentsInChildren<IItemAction>().ToList().ForEach(item => { item.Execute(itemRef.Item); });
+            target.GetComponentsInChildren<IItemAction>().ToList().ForEach(item => { item.Execute(itemRef.Item); });
         }
     }
 

@@ -41,6 +41,7 @@ public class Inventory : MonoBehaviour, IItemAction
         {
             items.Add(itemSO, new InventoryItem(itemSO, 1));
         }
+        Debug.Log("Item Added To Inventory");
         OnInventoryUpdate?.Invoke(items.Values.ToList());
     }
 }
