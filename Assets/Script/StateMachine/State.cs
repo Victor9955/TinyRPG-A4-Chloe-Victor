@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class State
+public abstract class State : MonoBehaviour
 {
     StateMachine _stateMachine;
 

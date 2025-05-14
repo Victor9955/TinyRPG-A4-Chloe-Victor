@@ -3,8 +3,5 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour, IMovable
 {
-    public void Move(Vector2 pos)
-    {
-
-    }
+    public Vector2 Direction { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }

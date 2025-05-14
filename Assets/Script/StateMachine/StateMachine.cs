@@ -5,8 +5,10 @@ public class StateMachine : MonoBehaviour
     public State CurrentState { get; private set; }
 
 
+    [SerializeField] State _idleState;
     [SerializeField] State _walkState;
     [SerializeField] State _attackState;
+    public State IdleState => _idleState;
     public State WalkState => _walkState;
     public State AttackState => _attackState;
 

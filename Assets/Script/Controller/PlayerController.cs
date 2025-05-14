@@ -18,6 +18,6 @@ public class PlayerController : MonoBehaviour
 
     private void DoMove(InputAction.CallbackContext context)
     {
-        _movable?.Value.Move(context.ReadValue<Vector2>().normalized);
+        //_movable?.Value.Move(context.ReadValue<Vector2>().normalized);
     }
 }
