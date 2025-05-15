@@ -1,14 +1,56 @@
 using UnityEngine;
 
-public interface IItem
+public interface IPhysicalItem : IItem
 {
-
+    GameObject ItemPhysicPrefab { get; }
 }
 
-[CreateAssetMenu(fileName = "ItemBase", menuName = "Scriptable Objects/ItemBase")]
+public interface IUIItem : IItem
+{
+    GameObject ItemUIPrefab { get; }
+}
+
+public interface IItem
+{
+    string ItemName { get; }
+}
+
+public abstract class ItemBase : ScriptableObject, IUIItem, IPhysicalItem
+{
+    [SerializeField] private string itemName;
+
+    public string ItemName { get => itemName; }
+    public GameObject ItemPhysicPrefab { get => new GameObject("NullItem"); }
+    public GameObject ItemUIPrefab { get => new GameObject("NullItem"); }
+}
+
+public class NullItem : ItemBase
+{ 
+    public string ItemName { get => "NullItem"; }
+    public GameObject ItemPhysicPrefab { get => new GameObject("NullItem"); }
+    public GameObject ItemUIPrefab { get => new GameObject("NullItem"); }
+}
+
 public abstract class ItemFactory : GenericFactory<IItem>
 {
-    public string ItemName;
-    public GameObject ItemPhysicPrefab;
-    public GameObject ItemUIPrefab;
+    [SerializeField] protected InterfaceReference<IItem> item;
+
+    public override IItem CreateType()
+    {
+        if(item == null)
+        {
+            return new NullItem();
+        }
+        return CreateInstance();
+    }
+
+    public abstract IItem CreateInstance();
+}
+
+public class ItemUIFactory : ItemFactory
+{
+    public override IItem CreateInstance()
+    {
+        return new NullItem();
+    }
 }

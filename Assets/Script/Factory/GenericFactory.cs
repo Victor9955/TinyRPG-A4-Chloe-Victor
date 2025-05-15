@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GenericFactory", menuName = "Scriptable Objects/GenericFactory")]
-public abstract class GenericFactory<BaseType> : ScriptableObject
+public abstract class GenericFactory<BaseType> : MonoBehaviour
 {
     public abstract BaseType CreateType();
 }
