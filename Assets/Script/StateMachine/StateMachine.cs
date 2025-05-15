@@ -10,12 +10,12 @@ public class StateMachine : MonoBehaviour
     [SerializeField] State _attackState;
     public State IdleState => _idleState;
     public State WalkState => _walkState;
-    public State AttackState => _attackState;
 
 
     State[] _states => new State[]
     {
-        WalkState
+        IdleState,
+        WalkState,
     };
 
     private void Awake()
@@ -24,6 +24,11 @@ public class StateMachine : MonoBehaviour
         {
             state.InitState(this);
         }
+    }
+
+    private void Start()
+    {
+        ChangeState(IdleState);
     }
 
     public void ChangeState(State state)

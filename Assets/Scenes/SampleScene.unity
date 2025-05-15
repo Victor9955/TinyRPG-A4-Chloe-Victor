@@ -29615,6 +29615,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.7071068
       objectReference: {fileID: 0}
+    - target: {fileID: 6046796464685988523, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: _playerDirection.underlyingValue
+      value: 
+      objectReference: {fileID: 164211095928399047}
     - target: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_Name
@@ -29625,6 +29630,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8448508387325598428, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: _playerDirection.underlyingValue
+      value: 
+      objectReference: {fileID: 164211095928399047}
     - target: {fileID: 9003200076993734132, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: _drawDebugGizmo
@@ -29638,6 +29648,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 164211095928399047}
+    - targetCorrespondingSourceObject: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 164211095928399052}
+    - targetCorrespondingSourceObject: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 164211095928399051}
+    - targetCorrespondingSourceObject: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 164211095928399050}
   m_SourcePrefab: {fileID: 100100000, guid: 8b89fdb0c71dd438b9b7b0ef242463bc, type: 3}
 --- !u!4 &164211095928399045 stripped
 Transform:
@@ -29663,9 +29685,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c639bf32255724544a0ce2c70deb212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputRef: {fileID: 11400000, guid: 4c1ac05e410bd2a41924ee960de33477, type: 2}
-  _movable:
-    underlyingValue: {fileID: 0}
+--- !u!95 &164211095928399048 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4017012815927045721, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 164211095928399044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &164211095928399049 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2755339349131118951, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 164211095928399044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &164211095928399050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164211095928399046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2acb90465308c42b5858b3b979ae85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idleState: {fileID: 164211095928399051}
+  _walkState: {fileID: 164211095928399052}
+  _attackState: {fileID: 0}
+--- !u!114 &164211095928399051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164211095928399046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd2a4c0a15176e4e9b399317f60d41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeBeforeSleep: 5
+  _playerDirection:
+    underlyingValue: {fileID: 164211095928399047}
+  _animator: {fileID: 164211095928399048}
+--- !u!114 &164211095928399052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164211095928399046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64bfec617ceb044f828856dea83e6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _playerDirection:
+    underlyingValue: {fileID: 164211095928399047}
+  _animator: {fileID: 164211095928399048}
+  _navMeshAgent: {fileID: 164211095928399049}
 --- !u!1001 &316894929158137843
 PrefabInstance:
   m_ObjectHideFlags: 0
