@@ -5,7 +5,6 @@ public class ItemSO : ScriptableObject
 {
     public string itemName;
     public Sprite icon;
-    public GameObject prefab;
     public int maxStack = 1;
     public bool isStackable;
 
