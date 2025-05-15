@@ -19,7 +19,7 @@ public partial class MoveTowardAction : Action
     protected override Status OnUpdate()
     {
         Agent.Value.Move(new Vector3(Direction.Value.x, 0f, Direction.Value.y).normalized * Speed * Time.deltaTime);
-        return Status.Success;
+        return Status.Running;
     }
 
     protected override void OnEnd()

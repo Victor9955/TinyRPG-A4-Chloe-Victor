@@ -8,7 +8,7 @@ public class TriggerProxyAction : MonoBehaviour
     {
         if(!action.IsNull())
         {
-            action.Value.OnTriggerEnter(other);
+            action.Value.IOnTriggerEnter(other);
         }
     }
 
@@ -16,7 +16,7 @@ public class TriggerProxyAction : MonoBehaviour
     {
         if (!action.IsNull())
         {
-            action.Value.OnTriggerStay(other);
+            action.Value.IOnTriggerStay(other);
         }
     }
 
@@ -24,7 +24,7 @@ public class TriggerProxyAction : MonoBehaviour
     {
         if (!action.IsNull())
         {
-            action.Value.OnTriggerStop(other);
+            action.Value.IOnTriggerStop(other);
         }
     }
 }
