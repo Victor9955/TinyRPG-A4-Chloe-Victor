@@ -8,6 +8,6 @@ public class ItemSO : ScriptableObject
     public int maxStack = 1;
     public bool isStackable;
 
-    [SerializeReference] // Allows polymorphic serialization
+    [SerializeReference]
     public Item itemDefinition;
 }

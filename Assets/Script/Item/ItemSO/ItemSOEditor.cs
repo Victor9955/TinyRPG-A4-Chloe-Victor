@@ -4,12 +4,14 @@ using UnityEngine;
 using System;
 using System.Linq;
 using System.Reflection;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 [CustomEditor(typeof(ItemSO))]
 public class ItemSOEditor : Editor
 {
-    private Type[] itemSubclasses;
-    private string[] typeNames;
+    private List<Type> itemSubclasses;
+    private List<string> typeNames;
     private int selectedIndex;
     private SerializedProperty itemDefinitionProp;
 
@@ -17,9 +19,9 @@ public class ItemSOEditor : Editor
     {
         itemDefinitionProp = serializedObject.FindProperty("itemDefinition");
         itemSubclasses = GetItemSubclasses();
-        typeNames = itemSubclasses.Select(t => t.Name).ToArray();
+        typeNames = itemSubclasses.Select(t => t.Name).ToList();
         ItemSO itemSO = (ItemSO)target;
-        selectedIndex = Array.FindIndex(itemSubclasses, t => t == itemSO.itemDefinition?.GetType());
+        selectedIndex = itemSubclasses.IndexOf(itemSO.itemDefinition?.GetType());
     }
 
     public override void OnInspectorGUI()
@@ -27,12 +29,9 @@ public class ItemSOEditor : Editor
         ItemSO itemSO = (ItemSO)target;
         serializedObject.Update();
 
-        // Dessiner les propriétés standard
         DrawPropertiesExcluding(serializedObject, "itemDefinition");
-
-        // Sélecteur de type
         EditorGUI.BeginChangeCheck();
-        selectedIndex = EditorGUILayout.Popup("Item Type", selectedIndex, typeNames);
+        selectedIndex = EditorGUILayout.Popup("Item Type", selectedIndex, typeNames.ToArray());
 
         if (EditorGUI.EndChangeCheck())
         {
@@ -41,7 +40,6 @@ public class ItemSOEditor : Editor
             EditorUtility.SetDirty(itemSO);
         }
 
-        // Dessiner les propriétés spécifiques
         if (itemSO.itemDefinition != null)
         {
             var definition = serializedObject.FindProperty("itemDefinition");
@@ -51,15 +49,13 @@ public class ItemSOEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 
-    private Type[] GetItemSubclasses()
+    private List<Type> GetItemSubclasses()
     {
         return AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(assembly => assembly.GetTypes())
             .Where(t => t.IsClass &&
-                       !t.IsAbstract &&
                        t.IsSubclassOf(typeof(Item)))
-            .OrderBy(t => t.Name)
-            .ToArray();
+            .ToList();
     }
 }
 #endif

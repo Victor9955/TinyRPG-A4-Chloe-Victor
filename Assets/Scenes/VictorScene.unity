@@ -2014,7 +2014,7 @@ MonoBehaviour:
         GUID:
           m_Value0: 5501723095148842047
           m_Value1: 14981951501166344425
-        Name: Speed
+        Name: Run Speed
         m_Value: 1
 --- !u!1001 &123920231
 PrefabInstance:
@@ -4286,7 +4286,7 @@ GameObject:
   - component: {fileID: 276109483}
   - component: {fileID: 276109484}
   m_Layer: 5
-  m_Name: Image
+  m_Name: InventoryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11657,6 +11657,7 @@ MonoBehaviour:
   _idleState: {fileID: 758635782}
   _walkState: {fileID: 758635783}
   _attackState: {fileID: 0}
+  _hitState: {fileID: 0}
 --- !u!114 &758635782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11672,6 +11673,8 @@ MonoBehaviour:
   _timeBeforeSleep: 5
   _playerDirection:
     underlyingValue: {fileID: 758635784}
+  _playerAttack:
+    underlyingValue: {fileID: 0}
   _animator: {fileID: 758635779}
 --- !u!114 &758635783
 MonoBehaviour:
@@ -11688,6 +11691,8 @@ MonoBehaviour:
   _speed: 5
   _playerDirection:
     underlyingValue: {fileID: 758635784}
+  _playerAttack:
+    underlyingValue: {fileID: 0}
   _animator: {fileID: 758635779}
   _navMeshAgent: {fileID: 758635780}
 --- !u!114 &758635784
@@ -11702,6 +11707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c639bf32255724544a0ce2c70deb212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputThreshold: 0.01
 --- !u!4 &758635788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2221839628788110084, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
@@ -12081,7 +12087,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 783962438}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 276109479}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &783962438
 MonoBehaviour:
   m_ObjectHideFlags: 0
