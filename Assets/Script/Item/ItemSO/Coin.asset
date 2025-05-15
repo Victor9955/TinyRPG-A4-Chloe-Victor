@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   icon: {fileID: 0}
+  prefab: {fileID: 0}
   maxStack: 1
   isStackable: 0
   itemDefinition:
-    rid: 1011410288897687803
+    rid: 1708484185985384524
   references:
     version: 2
     RefIds:
-    - rid: 1011410288897687803
+    - rid: 1708484185985384524
       type: {class: Coin, ns: , asm: Assembly-CSharp}
       data:
-        amount: 10
-        color: {r: 1, g: 0.83099353, b: 0, a: 0}
+        amount: 0
+        color: {r: 0, g: 0, b: 0, a: 0}
         multiplier: 0
