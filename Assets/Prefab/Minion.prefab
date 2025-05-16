@@ -73,6 +73,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec3da66061dcb8548b506fe5bd8ed024, type: 3}
+--- !u!95 &5389989245478962096 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8231533210879514318, guid: ec3da66061dcb8548b506fe5bd8ed024,
+    type: 3}
+  m_PrefabInstance: {fileID: 4103150341157999998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7720622359045541319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6040585352637831353, guid: ec3da66061dcb8548b506fe5bd8ed024,
@@ -106,7 +112,7 @@ PrefabInstance:
     - target: {fileID: 2221839628788110084, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3682091
+      value: -2.27
       objectReference: {fileID: 0}
     - target: {fileID: 2221839628788110084, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
@@ -116,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 2221839628788110084, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.405895
+      value: 28.7
       objectReference: {fileID: 0}
     - target: {fileID: 2221839628788110084, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
@@ -224,6 +230,7 @@ MonoBehaviour:
   m_BlackboardVariableOverridesList:
   - rid: 1708484185985385047
   - rid: 1708484185985385412
+  - rid: 1708484209938792938
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -247,6 +254,15 @@ MonoBehaviour:
           m_Value1: 14981951501166344425
         Name: Run Speed
         m_Value: 1
+    - rid: 1708484209938792938
+      type: {class: 'BlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6399161206944085537
+          m_Value1: 12511145884013139824
+        Name: Animator
+        m_Value: {fileID: 5389989245478962096}
 --- !u!4 &5943897753975625083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2221839628788110084, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
