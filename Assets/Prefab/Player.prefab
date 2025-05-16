@@ -283,7 +283,11 @@ GameObject:
   - component: {fileID: 2755339349131118951}
   - component: {fileID: 9115170152858762924}
   - component: {fileID: 1773919467903242491}
-  - component: {fileID: 2602093013513685090}
+  - component: {fileID: 5042788024576990440}
+  - component: {fileID: 1712046894766472260}
+  - component: {fileID: 6924447081669518617}
+  - component: {fileID: 9001777944766943517}
+  - component: {fileID: 5540808564842758816}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -380,7 +384,7 @@ MonoBehaviour:
   _onDeath:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2602093013513685090
+--- !u!114 &5042788024576990440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -393,6 +397,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputThreshold: 0.01
+--- !u!114 &1712046894766472260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331558144665418028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2acb90465308c42b5858b3b979ae85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idleState: {fileID: 0}
+  _walkState: {fileID: 0}
+  _attackState: {fileID: 0}
+  _sleepingState: {fileID: 0}
+--- !u!114 &6924447081669518617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331558144665418028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64bfec617ceb044f828856dea83e6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _playerDirection:
+    underlyingValue: {fileID: 5042788024576990440}
+  _playerAttack:
+    underlyingValue: {fileID: 5042788024576990440}
+  _animator: {fileID: 4017012815927045721}
+  _navMeshAgent: {fileID: 2755339349131118951}
+--- !u!114 &9001777944766943517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331558144665418028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd2a4c0a15176e4e9b399317f60d41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeBeforeSleep: 5
+  _playerDirection:
+    underlyingValue: {fileID: 5042788024576990440}
+  _playerAttack:
+    underlyingValue: {fileID: 5042788024576990440}
+  _animator: {fileID: 4017012815927045721}
+--- !u!114 &5540808564842758816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331558144665418028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6130b67230f24e4c8dbd6ff3f6ffb54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerDirection:
+    underlyingValue: {fileID: 5042788024576990440}
+  _playerAttack:
+    underlyingValue: {fileID: 5042788024576990440}
+  _animEndEvent: {fileID: 5500394678867479514}
+  _animator: {fileID: 4017012815927045721}
+  _animatorLieName: IsSleeping
+  _animationEndEventName: StandUp
 --- !u!1001 &4809541577718529553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,6 +624,12 @@ PrefabInstance:
 --- !u!4 &625343852832257305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8640538035317054127, guid: d035779bf520f38499966b00a58bd75f,
+    type: 3}
+  m_PrefabInstance: {fileID: 9170720254062063542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4017012815927045721 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5259002207622955503, guid: d035779bf520f38499966b00a58bd75f,
     type: 3}
   m_PrefabInstance: {fileID: 9170720254062063542}
   m_PrefabAsset: {fileID: 0}
