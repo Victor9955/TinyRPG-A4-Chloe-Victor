@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Coin : Item,IUIColor
 {
-    Color color;
+    [SerializeField] Color color;
 
     public Color Color => color;
 }
@@ -11,6 +11,6 @@ public class Coin : Item,IUIColor
 public class Bottle : Item, IUIColor
 {
     public int amount;
-    Color color;
+    [SerializeField] Color color;
     public Color Color => color;
 }

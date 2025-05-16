@@ -26,3 +26,4 @@ MonoBehaviour:
       type: {class: Bottle, ns: , asm: Assembly-CSharp}
       data:
         amount: 100
+        color: {r: 0.78113204, g: 0.2888536, b: 0, a: 1}

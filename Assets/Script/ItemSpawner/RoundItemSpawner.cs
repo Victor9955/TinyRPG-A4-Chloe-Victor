@@ -8,18 +8,23 @@ public class RoundItemSpawner : MonoBehaviour, ITriggerAction
     [SerializeField] float spawnRadius = 5f;
     [SerializeField] float spawnInterval = 1f;
     [SerializeField] int numberOfItems = 10;
+    bool once = false;
 
-    public void IOnTriggerEnter(Collider other)
+    public async void IOnTriggerEnter(Collider other)
     {
         // Test Animation avec async await
-        SpawnObjectsInCircle();
+        if(!once)
+        {
+            await SpawnObjectsInCircle();
+            once = true;
+        }
     }
 
     public void IOnTriggerStay(Collider other) { }
 
     public void IOnTriggerStop(Collider other) { }
 
-    public async Task SpawnObjectsInCircle()
+    private async Awaitable SpawnObjectsInCircle()
     {
         for (int i = 0; i < 10; i++)
         {
@@ -31,7 +36,8 @@ public class RoundItemSpawner : MonoBehaviour, ITriggerAction
             );
             PoolManager.Instance.Get(item,spawnPosition, Quaternion.LookRotation(spawnPosition));
 
-            await Task.Delay(Mathf.RoundToInt(spawnInterval * 1000));
+            //await Task.Delay(Mathf.RoundToInt(spawnInterval * 1000f));
+            await Awaitable.WaitForSecondsAsync(spawnInterval);
         }
     }
 }

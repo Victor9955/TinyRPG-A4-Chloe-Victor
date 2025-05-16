@@ -25,4 +25,4 @@ MonoBehaviour:
     - rid: 1708484185985384524
       type: {class: Coin, ns: , asm: Assembly-CSharp}
       data:
-        color: {r: 1, g: 0.73987746, b: 0, a: 0}
+        color: {r: 1, g: 0.73987746, b: 0, a: 1}

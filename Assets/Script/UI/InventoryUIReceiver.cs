@@ -34,9 +34,9 @@ public class InventoryUIReceiver : MonoBehaviour
 
     void ShowUI()
     {
-        if(inventoryItems.Count == 0) return;
-        inventoryUI.Clear();
         GUI.gameObject.SetActive(true);
+        if (inventoryItems.Count == 0) return;
+        inventoryUI.Clear();
         foreach (InventoryItem item in inventoryItems)
         {
             GameObject cash = PoolManager.Instance.Get(UIItemPrefab.Value, Vector3.zero, Quaternion.identity);
@@ -49,6 +49,7 @@ public class InventoryUIReceiver : MonoBehaviour
     void HideUI()
     {
         GUI.gameObject.SetActive(false);
+        if (inventoryItems.Count == 0) return;
         foreach (InventoryItem item in inventoryUI.Keys)
         {
             PoolManager.Instance.ReturnToPool(UIItemPrefab.Value, inventoryUI[item]);
