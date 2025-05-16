@@ -3,32 +3,39 @@ using UnityEngine;
 public class AttackState : State
 {
     [SerializeField] Animator _animator;
-    [SerializeField] AnimationEndEvent _attackAnim;
+    [SerializeField] AnimationEndEvent _animEndEvent;
+    [SerializeField] string _animationAttackName = "Attack";
+    [SerializeField] string _attackEndEventName = "Attack";
     bool _hasFinishAttacking;
 
-    private void Awake()
+    private void OnAttackAnimationEnd(string animationName)
     {
-        _attackAnim.OnAnimationEnd += OnAttackAnimationEnd;
-    }
-
-    private void OnAttackAnimationEnd()
-    {
-        _hasFinishAttacking = true;
+        if (_attackEndEventName == animationName)
+        {
+            _hasFinishAttacking = true;
+        }
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        _animEndEvent.OnAnimationEnd += OnAttackAnimationEnd;
         _hasFinishAttacking = false;
-        _animator?.SetTrigger("Attack");
+        _animator?.SetTrigger(_animationAttackName);
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-        if (_animator != null && _hasFinishAttacking)
+        if (_hasFinishAttacking)
         {
             _stateMachine.ChangeState(_stateMachine.IdleState);
         }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+        _animEndEvent.OnAnimationEnd -= OnAttackAnimationEnd;
     }
 }

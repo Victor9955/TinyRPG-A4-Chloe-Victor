@@ -8,19 +8,17 @@ public class StateMachine : MonoBehaviour
     [SerializeField] State _idleState;
     [SerializeField] State _walkState;
     [SerializeField] State _attackState;
-    [SerializeField] State _hitState;
+    [SerializeField] State _sleepingState;
     public State IdleState => _idleState;
     public State WalkState => _walkState;
     public State AttackState => _attackState;
-    public State HitState => _attackState;
-
-
+    public State SleepingState => _sleepingState;
     State[] _states => new State[]
     {
         IdleState,
         WalkState,
         AttackState,
-        HitState
+        SleepingState
     };
 
     private void Awake()

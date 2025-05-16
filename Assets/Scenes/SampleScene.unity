@@ -2761,6 +2761,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 164944809}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &166980149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5500394678867479514, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 164211095928399044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e72ffd151508e84ab4eac7fb50b7a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &168764019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29664,6 +29676,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 164211095928399057}
+    - targetCorrespondingSourceObject: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 164211095928399063}
   m_SourcePrefab: {fileID: 100100000, guid: 8b89fdb0c71dd438b9b7b0ef242463bc, type: 3}
 --- !u!4 &164211095928399045 stripped
 Transform:
@@ -29717,7 +29733,7 @@ MonoBehaviour:
   _idleState: {fileID: 164211095928399051}
   _walkState: {fileID: 164211095928399052}
   _attackState: {fileID: 164211095928399057}
-  _hitState: {fileID: 0}
+  _sleepingState: {fileID: 164211095928399063}
 --- !u!114 &164211095928399051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29768,19 +29784,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 164211095928399048}
-  _attackAnim: {fileID: 164211095928399058}
---- !u!114 &164211095928399058 stripped
+  _animEndEvent: {fileID: 166980149}
+  _animationAttackName: Attack
+  _attackEndEventName: Attack
+--- !u!114 &164211095928399060 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 788547304624713258, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+  m_CorrespondingSourceObject: {fileID: 2602093013513685090, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
     type: 3}
   m_PrefabInstance: {fileID: 164211095928399044}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 164211095928399046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e72ffd151508e84ab4eac7fb50b7a5f, type: 3}
+  m_Script: {fileID: 11500000, guid: c639bf32255724544a0ce2c70deb212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &164211095928399063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164211095928399046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6130b67230f24e4c8dbd6ff3f6ffb54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerDirection:
+    underlyingValue: {fileID: 164211095928399060}
+  _playerAttack:
+    underlyingValue: {fileID: 164211095928399047}
+  _animEndEvent: {fileID: 166980149}
+  _animator: {fileID: 164211095928399048}
+  _animatorLieName: IsSleeping
+  _animationEndEventName: StandUp
 --- !u!1001 &316894929158137843
 PrefabInstance:
   m_ObjectHideFlags: 0
