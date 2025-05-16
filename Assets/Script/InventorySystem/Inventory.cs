@@ -21,28 +21,35 @@ public class Inventory : MonoBehaviour, IItemAction
 {
     [SerializeField] List<InventoryItem> baseItems = new();
 
-    Dictionary<ItemSO, InventoryItem> items = new();
+    List<InventoryItem> items = new();
 
     [SerializeField] UnityEvent<List<InventoryItem>> OnInventoryUpdate;
 
     private void Start()
     {
         items.Clear();
-        items = baseItems.ToDictionary(item => item.itemSO, item => item);
+        items = baseItems;
     }
 
     public void Execute(ItemSO itemSO)
     {
-        if(items.TryGetValue(itemSO, out InventoryItem inventoryItem))
+        if(itemSO.isStackable)
         {
-            inventoryItem.quantity++;
+            InventoryItem cash = items.FindAll(item => item.itemSO == itemSO).Find(item => item.itemSO.maxStack > item.quantity);
+            if (cash != null)
+            {
+                cash.quantity++;
+            }
+            else
+            {
+                items.Add(new InventoryItem(itemSO, 1));
+            }
         }
         else
         {
-            items.Add(itemSO, new InventoryItem(itemSO, 1));
+            items.Add(new InventoryItem(itemSO, 1));
         }
 
-        Debug.Log("Item Added To Inventory");
-        OnInventoryUpdate?.Invoke(items.Values.ToList());
+        OnInventoryUpdate?.Invoke(items);
     }
 }
